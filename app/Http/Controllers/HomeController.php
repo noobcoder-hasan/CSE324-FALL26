@@ -24,4 +24,14 @@ class HomeController extends Controller
 
 
    }
+   public function show(){
+      $student = Student::all();
+      return view('show',compact('student'));
+   }
+
+   public function delete($id){
+      $data = Student::find($id);
+      $data->delete();
+      return redirect()->back();
+       }
 }
